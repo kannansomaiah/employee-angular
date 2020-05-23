@@ -1,0 +1,51 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+</head>
+
+<body>
+
+<form #employee = "ngForm" (ngSubmit) = "onClickSubmit(employee.value)" >
+
+  <br/><br/>
+    <input type = "text" name = "first" placeholder = "first name" ngModel>
+    <br/><br/>
+    <input type = "text" name = "last" placeholder = "last name" ngModel>
+    <br/><br/>
+    <input type = "text" name = "email" placeholder = "email" ngModel>
+    <br/><br/>
+    <input type = "submit" value = "submit">
+    <br/><br/>  
+    <table mdbTable border="1">
+      <thead>
+        <tr>
+          <td>Email</td>
+          <td>First Name</td>
+          <td>Last Name</td>
+          <td>Delete</td>
+        </tr>
+      </thead> 
+      <tbody>
+        <tr mdbTableCol *ngFor="let el of response; let i = index">
+          <td>{{el.email}}</td>
+          <td>{{el.firstName}}</td>
+          <td>{{el.lastName}}</td>
+          <td><input type = "button" value = "delete" (click)="deleteEmployee(el)"></td>
+          
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+  </form>
+
+</body>
+
+  </html>
